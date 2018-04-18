@@ -283,6 +283,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Box.cs" />
+    <Compile Include="Assets\Scripts\Clouds.cs" />
+    <Compile Include="Assets\Scripts\CloudsController.cs" />
     <Compile Include="Assets\Scripts\GameOver.cs" />
     <Compile Include="Assets\Scripts\IsMinedRender.cs" />
     <Compile Include="Assets\Scripts\JumpScene2.cs" />
