@@ -8,6 +8,7 @@ public class CloudsController : MonoBehaviour {
     public float speed;
     private float startTime;
     private float journeyLength;
+    float timer;
 
     // Use this for initialization
     void Start () {
@@ -17,16 +18,18 @@ public class CloudsController : MonoBehaviour {
         pos2 = new Vector3(5, ypos, 0);
         journeyLength = Vector3.Distance(pos1, pos2);
         transform.position = pos1;
-        speed = Random.Range(0.5F, 1.5F);
+        speed = Random.Range(0.5F, 1.0F);
+        timer = 20.0F;
     }
 	
 	// Update is called once per frame
 	void Update () {
         float distCovered = (Time.time - startTime) * speed;
         float fracJourney = distCovered / journeyLength;
+        timer -= Time.deltaTime;
         transform.position = Vector3.Lerp(pos1, pos2, fracJourney);
 
-        if (transform.position == pos2) {
+        if (timer <= 0) {
             DestroyGameObject();
         }
     }
