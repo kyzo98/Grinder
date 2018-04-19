@@ -311,11 +311,41 @@ public class Box : MonoBehaviour
         }
         else if (depth > 250 && depth <= 500)
         {
-            //Generador capa 3
+            if (randomizer % 20 == 0)
+            {
+                ground = Ground.Frost;
+            }
+            else if(randomizer % 10 == 0)
+            {
+                ground = Ground.Snow;
+            }
+            else if (randomizer + depth > 310)
+            {
+                ground = Ground.Ice;
+            }
+            else if (randomizer + depth > 270)
+            {
+                ground = Ground.Ice_Rock;
+            }
         }
         else
         {
-            //Generador capa 4
+            if (randomizer % 20 == 0)
+            {
+                ground = Ground.Lava;
+            }
+            else if (randomizer % 10 == 0)
+            {
+                ground = Ground.Soul_Sand;
+            }
+            else if (randomizer + depth > 410)
+            {
+                ground = Ground.Bone_Tomb;
+            }
+            else if (randomizer + depth > 370)
+            {
+                ground = Ground.Infernal_Rock;
+            }
         }
     }
 
@@ -356,6 +386,123 @@ public class Box : MonoBehaviour
                 }
             }
             else if (ground == Ground.Stone)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Gold;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Quartz;
+                }
+                else if (randomizer2 <= 900)
+                {
+                    loot = Loot.Ruby;
+                }
+                else
+                {
+                    loot = Loot.Diamond;
+                }
+            }
+            else if (ground == Ground.Frost)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Coal;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Silver;
+                }
+                else
+                {
+                    loot = Loot.Gold;
+                }
+            }
+            else if (ground == Ground.Snow)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Coal;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Silver;
+                }
+                else
+                {
+                    loot = Loot.Gold;
+                }
+            }
+            else if (ground == Ground.Ice)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Silver;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Gold;
+                }
+                else
+                {
+                    loot = Loot.Quartz;
+                }
+            }
+            else if (ground == Ground.Ice_Rock)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Gold;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Quartz;
+                }
+                else if (randomizer2 <= 900)
+                {
+                    loot = Loot.Ruby;
+                }
+                else
+                {
+                    loot = Loot.Diamond;
+                }
+            }
+            else if (ground == Ground.Lava)
+            {
+                loot = Loot.Nothing;
+            }
+            else if (ground == Ground.Soul_Sand)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Silver;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Gold;
+                }
+                else
+                {
+                    loot = Loot.Quartz;
+                }
+            }
+            else if (ground == Ground.Bone_Tomb)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Silver;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Gold;
+                }
+                else
+                {
+                    loot = Loot.Quartz;
+                }
+            }
+            else if (ground == Ground.Infernal_Rock)
             {
                 if (randomizer2 <= 500)
                 {
