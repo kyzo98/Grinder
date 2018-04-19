@@ -9,8 +9,8 @@ public class Clouds : MonoBehaviour {
     float absoluteTime;
     // Use this for initialization
     void Start () {
-        absoluteTime = 4.0f;
-        timer = absoluteTime;
+        absoluteTime = 15.0f;
+        timer = 0;
     }
 	
 	// Update is called once per frame
