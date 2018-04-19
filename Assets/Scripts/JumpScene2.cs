@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class JumpScene2 : MonoBehaviour {
 
-    public string SceneToLoad = "DemoScene";
+    public string SceneToLoad = "GrinderTitleScene";
     public float DelayTime = 3.0f;
     public void Start()
     {

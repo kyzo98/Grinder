@@ -5,10 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
-	public void PlayGame()
+    public string SceneToLoad = "Arcade";
+    
+    public void Start()
     {
-
-        Application.LoadLevel("Arcade");  
+        SceneManager.LoadScene(SceneToLoad, LoadSceneMode.Single);
     }
-	
+    
 }

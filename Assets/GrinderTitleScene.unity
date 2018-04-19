@@ -184,6 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 480943448}
   - component: {fileID: 480943447}
+  - component: {fileID: 480943449}
   m_Layer: 0
   m_Name: grinder
   m_TagString: Untagged
@@ -248,6 +249,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &480943449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480943446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5101ef1acdeddac41bc1ed3a37850a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: Menu
+  DelayTime: 3
 --- !u!1 &1792576682
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadMenu : MonoBehaviour {
 
     public string SceneToLoad = "Menu";
-    public float DelayTime = 4.0f;
+    public float DelayTime = 3.0f;
     public void Start()
     {
         StartCoroutine("Wait");
