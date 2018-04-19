@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/AkonaScene.unity
+=======
+- path: Assets/Menu.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
