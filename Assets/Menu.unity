@@ -1963,6 +1963,44 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 114360485566677610, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe25ace1d925f144db79d04e16c2a633,
+        type: 3}
+    - target: {fileID: 114251787448186514, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3de158126869c4a4ba21b71654b9725d,
+        type: 3}
+    - target: {fileID: 114432885684720802, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_SpriteState.m_DisabledSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3d8f27143bca5444926e7ce8cde462b,
+        type: 3}
+    - target: {fileID: 114432885684720802, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114184843257067800, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251787448186514, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114360485566677610, guid: 11cbfb909d6b1d24a9231219af7b9bff,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114750068700162046, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}

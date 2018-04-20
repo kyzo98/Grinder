@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MoveCharacter : MonoBehaviour {
     public enum Move { Down, Right, Left };
     public GameObject box;
-    public GameObject scrollBar;
+    public Image scrollBar;
     public GameObject GameOverCanvas; 
 
     public float fadeTime = 1.0f;
@@ -14,6 +14,7 @@ public class MoveCharacter : MonoBehaviour {
     public Text mincedText;
     public Text depthText;
     public Text gameOverDepthText;
+    public Text gameOverLootText;
     public Text newLootText;
     public Text renderCanvas;
 
@@ -25,6 +26,7 @@ public class MoveCharacter : MonoBehaviour {
     public int moves;
 
     int depth;
+    public int loot;
     public float absoluteTurnTime;
     public float turnTime;
     
@@ -36,6 +38,7 @@ public class MoveCharacter : MonoBehaviour {
         yPos = 5;
         lastMove = Move.Down;
         depth = 0;
+        loot = 0;
         moves = 15;
         gameOver = GameOver();
         InicialiceMap(depth - 2);
@@ -50,22 +53,19 @@ public class MoveCharacter : MonoBehaviour {
         gameOver = GameOver();
         if (!gameOver)
         {
-            Scrollbar scrollbarControl = scrollBar.GetComponent<Scrollbar>();
-            MoveScrollbar moveScrollbarControl = scrollBar.GetComponent<MoveScrollbar>();
             turnTime -= Time.deltaTime;
             if (turnTime <= 0)
             {
                 moves--;
                 turnTime = absoluteTurnTime;
             }
-            scrollbarControl.size = turnTime / absoluteTurnTime;
+            scrollBar.fillAmount = turnTime / absoluteTurnTime;
 
             if (Input.GetKeyDown("left") && !Input.GetKeyDown("down"))
             {
                 if (xPos != -4)
                 {
                     xPos -= 2;
-                    moveScrollbarControl.xPos -= 2;
                 }
                 transform.position = new Vector3(xPos, yPos, 0);
                 lastMove = Move.Left;
@@ -75,7 +75,6 @@ public class MoveCharacter : MonoBehaviour {
                 if (xPos != 4)
                 {
                     xPos += 2;
-                    moveScrollbarControl.xPos += 2;
                 } 
                 transform.position = new Vector3(xPos, yPos, 0);
                 lastMove = Move.Right;
@@ -89,8 +88,10 @@ public class MoveCharacter : MonoBehaviour {
         }
         else
         {
+            moves = 0;
             //Cambiar a la escena gameover
             gameOverDepthText.text = depth.ToString();
+            gameOverLootText.text = loot.ToString();
             GameOverCanvas.SetActive(true);
         }
         RefreshValues();
