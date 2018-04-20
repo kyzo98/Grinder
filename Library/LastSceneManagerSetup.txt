@@ -1,16 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-- path: Assets/AkonaScene.unity
-=======
-- path: Assets/Menu.unity
->>>>>>> Stashed changes
-=======
-- path: Assets/Menu.unity
->>>>>>> master
-=======
-- path: Assets/AkonaScene.unity
->>>>>>> master
+- path: Assets/Arcade.unity
   isLoaded: 1
   isActive: 1

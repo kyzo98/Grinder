@@ -404,6 +404,70 @@ public class Box : MonoBehaviour
                     loot = Loot.Diamond;
                 }
             }
+            else if (ground == Ground.Vegetal_Sediment)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Coal;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Silver;
+                }
+                else
+                {
+                    loot = Loot.Gold;
+                }
+            }
+            else if (ground == Ground.Petroleum)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Silver;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Gold;
+                }
+                else
+                {
+                    loot = Loot.Quartz;
+                }
+            }
+            else if (ground == Ground.Organic_Strata)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Silver;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Gold;
+                }
+                else
+                {
+                    loot = Loot.Quartz;
+                }
+            }
+            else if (ground == Ground.Coal_Rock)
+            {
+                if (randomizer2 <= 500)
+                {
+                    loot = Loot.Gold;
+                }
+                else if (randomizer2 <= 800)
+                {
+                    loot = Loot.Quartz;
+                }
+                else if (randomizer2 <= 900)
+                {
+                    loot = Loot.Ruby;
+                }
+                else
+                {
+                    loot = Loot.Diamond;
+                }
+            }
             else if (ground == Ground.Frost)
             {
                 if (randomizer2 <= 500)
