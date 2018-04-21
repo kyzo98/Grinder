@@ -14,12 +14,12 @@ public class CloudsController : MonoBehaviour {
     void Start () {
         int ypos = Random.Range(-3, 5);
         startTime = Time.time;
-        pos1 = new Vector3(-5, ypos, 0);
-        pos2 = new Vector3(5, ypos, 0);
+        pos1 = new Vector3(-7.5f, ypos, 0);
+        pos2 = new Vector3(7.5f, ypos, 0);
         journeyLength = Vector3.Distance(pos1, pos2);
         transform.position = pos1;
         speed = Random.Range(0.2F, 0.5F);
-        timer = 40.0F;
+        timer = 60.0F;
     }
 	
 	// Update is called once per frame

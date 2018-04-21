@@ -19,9 +19,9 @@ public class NewLoot : MonoBehaviour {
 	void Start () {
         prueba = gameObject.GetComponent<Text>();
         startTime = Time.time;
-        startPosition = new Vector3(0, 6.4f, 0);
+        startPosition = new Vector3(0, 5.8f, 0);
         transform.position = startPosition;
-        target = new Vector3(0, 6.8f, 0);
+        target = new Vector3(0, 6.2f, 0);
 
         character = GameObject.Find("Character");
         MoveCharacter characterControl = character.GetComponent<MoveCharacter>();
