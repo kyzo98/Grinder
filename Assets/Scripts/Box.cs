@@ -294,7 +294,7 @@ public class Box : MonoBehaviour
             }
             else if (randomizer % 10 == 0)
             {
-                ground = Ground.Coal_Rock;
+                ground = Ground.Vegetal_Sediment;
             }
             else if (randomizer + depth > 210)
             {
@@ -302,11 +302,11 @@ public class Box : MonoBehaviour
             }
             else if (randomizer + depth > 170)
             {
-                ground = Ground.Vegetal_Sediment;
+                ground = Ground.Coal_Rock;
             }
             else
             {
-                ground = Ground.Coal_Rock;
+                ground = Ground.Vegetal_Sediment;
             }
         }
         else if (depth > 250 && depth <= 500)
