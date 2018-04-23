@@ -8,6 +8,7 @@ public class MoveCharacter : MonoBehaviour {
     public GameObject box;
     public Image scrollBar;
     public GameObject GameOverCanvas; 
+    public GameObject PauseCanvas; 
 
     public float fadeTime = 1.0f;
 
@@ -29,8 +30,13 @@ public class MoveCharacter : MonoBehaviour {
     public int loot;
     public float absoluteTurnTime;
     public float turnTime;
-    
-    
+
+    bool orientation;
+    bool temporizador;
+    public bool pauseToggle;
+
+
+    Animator anim;
     public bool gameOver;
 
     // Use this for initialization
@@ -45,24 +51,44 @@ public class MoveCharacter : MonoBehaviour {
         transform.position = new Vector3(xPos, yPos, 0);
         RefreshValues();
         turnTime = absoluteTurnTime;
-        
+        orientation = true;
+        temporizador = false;
+        pauseToggle = false;
+        anim = gameObject.GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
+        anim.SetBool("Lateral", false);
         gameOver = GameOver();
         if (!gameOver)
         {
-            turnTime -= Time.deltaTime;
-            if (turnTime <= 0)
+            //Orientación del pj
+            if (!orientation)
             {
-                moves--;
-                turnTime = absoluteTurnTime;
+                GetComponent<SpriteRenderer>().flipX = true;
             }
-            scrollBar.fillAmount = turnTime / absoluteTurnTime;
-
-            if (Input.GetKeyDown("left") && !Input.GetKeyDown("down"))
+            else
             {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+
+            //Temporizador scroll
+            if (temporizador)
+            {
+                turnTime -= Time.deltaTime;
+                if (turnTime <= 0)
+                {
+                    moves--;
+                    turnTime = absoluteTurnTime;
+                }
+                scrollBar.fillAmount = turnTime / absoluteTurnTime;
+            }
+            //Movimiento
+            if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
+            {
+                orientation = false;
+                anim.SetBool("Lateral", true);
                 if (xPos != -4)
                 {
                     xPos -= 2;
@@ -70,20 +96,43 @@ public class MoveCharacter : MonoBehaviour {
                 transform.position = new Vector3(xPos, yPos, 0);
                 lastMove = Move.Left;
             }
-            if (Input.GetKeyDown("right") && !Input.GetKeyDown("down"))
+            if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
             {
+                orientation = true;
+                anim.SetBool("Lateral", true);
                 if (xPos != 4)
                 {
                     xPos += 2;
                 } 
+                
                 transform.position = new Vector3(xPos, yPos, 0);
                 lastMove = Move.Right;
             }
-            if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")))
+            if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
             {
                 BoxMove(depth + 9);
                 depth++;
                 lastMove = Move.Down;
+                if (!temporizador)
+                    temporizador = true;
+            }
+
+            //Pausa
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                if (pauseToggle)
+                {
+                    PauseCanvas.SetActive(false);
+                    Time.timeScale = 1;
+                }
+
+                else
+                {
+                    Time.timeScale = 0;
+                    PauseCanvas.SetActive(true);
+                }   
+
+                pauseToggle = !pauseToggle;
             }
         }
         else

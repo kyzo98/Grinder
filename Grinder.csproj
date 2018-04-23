@@ -295,6 +295,7 @@
     <Compile Include="Assets\Scripts\MoveCharacter.cs" />
     <Compile Include="Assets\Scripts\MoveScrollbar.cs" />
     <Compile Include="Assets\Scripts\NewLoot.cs" />
+    <Compile Include="Assets\Scripts\Tutorial.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

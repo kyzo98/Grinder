@@ -67,7 +67,7 @@ public class Box : MonoBehaviour
         MoveCharacter characterControl = character.GetComponent<MoveCharacter>();
         if (!characterControl.gameOver)
         {
-            if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")))
+            if (!characterControl.pauseToggle && Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")))
             {
                 ypos += 2;
                 transform.position = new Vector3(xpos, ypos, 0);
