@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Box.cs" />
+     <Compile Include="Assets\Scripts\Button_Scripts.cs" />
      <Compile Include="Assets\Scripts\Clouds.cs" />
      <Compile Include="Assets\Scripts\CloudsController.cs" />
      <Compile Include="Assets\Scripts\GameOver.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\MoveCharacter.cs" />
      <Compile Include="Assets\Scripts\MoveScrollbar.cs" />
      <Compile Include="Assets\Scripts\NewLoot.cs" />
+     <Compile Include="Assets\Scripts\Tutorial.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
