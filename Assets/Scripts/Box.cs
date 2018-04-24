@@ -51,6 +51,10 @@ public class Box : MonoBehaviour
 
     private SpriteRenderer spriteR;
 
+    public bool moving;
+    float absoluteMoveTime;
+    float moveTime;
+
     void Start()
     {
         transform.position = new Vector3(xpos, ypos, 0);
@@ -61,6 +65,8 @@ public class Box : MonoBehaviour
         GroundSprite(ground);
         ValueGenerator(ground, loot);
         totalValue = value + lootValue;
+        absoluteMoveTime = 0.21f;
+        moveTime = absoluteMoveTime;
     }
 
     // Update is called once per frame
@@ -70,18 +76,49 @@ public class Box : MonoBehaviour
         MoveCharacter characterControl = character.GetComponent<MoveCharacter>();
         if (!characterControl.gameOver)
         {
-            if (!characterControl.pauseToggle && Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")))
+            if (!moving)
             {
-                ypos += 2;
-                transform.position = new Vector3(xpos, ypos, 0);
+                if (!characterControl.pauseToggle && Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")))
+                {
+                    moving = true;
+                }
             }
+            else
+            {
+                StopMoving();
+            }
+            
+
+            switch (characterControl.lastMove)
+            {
+                case MoveCharacter.Move.None:
+                    break;
+                case MoveCharacter.Move.Left:
+                    if (xpos == (character.transform.position.x - 2) && ypos == character.transform.position.y)
+                    {
+                        if (!isMined)
+                        {
+                            if (Input.GetKeyDown("left") || Input.GetKeyDown("right"))
+                                characterControl.anim.SetBool("Lateral", true);
+                        }
+                    }
+                    break;
+                case MoveCharacter.Move.Right:
+                    if (xpos == (character.transform.position.x + 2) && ypos == character.transform.position.y)
+                    {
+                        if (!isMined)
+                        {
+                            if (Input.GetKeyDown("left") || Input.GetKeyDown("right"))
+                                characterControl.anim.SetBool("Lateral", true);
+                        }
+                    }
+                    break;
+            }
+
             if (xpos == character.transform.position.x && ypos == character.transform.position.y)
             {
                 if (!isMined)
                 {
-                    if(Input.GetKeyDown("left") || Input.GetKeyDown("right"))
-                        characterControl.anim.SetBool("Lateral", true);
-
                     characterControl.moves += totalValue;
                     characterControl.turnTime = characterControl.absoluteTurnTime;
                     isMined = true;
@@ -100,7 +137,8 @@ public class Box : MonoBehaviour
                     }
                 }
             }
-            if (ypos > 10)
+
+            if (ypos > 14)
             {
                 DestroyGameObject();
             }
@@ -108,6 +146,18 @@ public class Box : MonoBehaviour
         else
         {
             
+        }
+    }
+
+    void StopMoving()
+    {
+        moveTime -= Time.deltaTime;
+        if (moveTime <= 0)
+        {
+            ypos += 2;
+            transform.position = new Vector3(xpos, ypos, 0);
+            moveTime = absoluteMoveTime;
+            moving = false;
         }
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Character
   - Canvas
+  - Box
   layers:
   - Default
   - TransparentFX

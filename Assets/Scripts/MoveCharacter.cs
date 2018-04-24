@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MoveCharacter : MonoBehaviour {
-    public enum Move { Down, Right, Left };
+    public enum Move { Down, Right, Left, None };
     public GameObject box;
     public Image scrollBar;
     public GameObject GameOverCanvas; 
@@ -39,8 +39,13 @@ public class MoveCharacter : MonoBehaviour {
     public Animator anim;
     public bool gameOver;
 
+    public bool moving;
+    float absoluteMoveTime;
+    float moveTime;
+
     // Use this for initialization
     void Start () {
+        moving = false;
         Time.timeScale = 1;
         yPos = 5;
         lastMove = Move.Down;
@@ -56,6 +61,8 @@ public class MoveCharacter : MonoBehaviour {
         temporizador = false;
         pauseToggle = false;
         anim = gameObject.GetComponent<Animator>();
+        absoluteMoveTime = 0.2f;
+        moveTime = absoluteMoveTime;
     }
 	
 	// Update is called once per frame
@@ -87,35 +94,44 @@ public class MoveCharacter : MonoBehaviour {
                 scrollBar.fillAmount = turnTime / absoluteTurnTime;
             }
             //Movimiento
-            if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
+            if (!moving)
             {
-                orientation = false;
-                if (xPos != -4)
+                if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
                 {
-                    xPos -= 2;
+                    orientation = false;
+                    lastMove = Move.Left;
+                    if (xPos != -4)
+                    {
+                        xPos -= 2;
+                        moving = true;
+                    }
+                    //transform.position = new Vector3(xPos, yPos, 0);
+                    
                 }
-                transform.position = new Vector3(xPos, yPos, 0);
-                lastMove = Move.Left;
-            }
-            if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
-            {
-                orientation = true;
-                if (xPos != 4)
+                if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
                 {
-                    xPos += 2;
-                } 
-                
-                transform.position = new Vector3(xPos, yPos, 0);
-                lastMove = Move.Right;
+                    orientation = true;
+                    lastMove = Move.Right;
+                    if (xPos != 4)
+                    {
+                        xPos += 2;
+                        moving = true;
+                    }
+                    //transform.position = new Vector3(xPos, yPos, 0);
+                    
+                }
+                if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
+                {
+                    anim.SetBool("Down", true);
+                    moving = true;
+                    lastMove = Move.Down;
+                    if (!temporizador)
+                        temporizador = true;
+                }
             }
-            if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
+            else
             {
-                anim.SetBool("Down", true);
-                BoxMove(depth + 9);
-                depth++;
-                lastMove = Move.Down;
-                if (!temporizador)
-                    temporizador = true;
+                StopMoving(lastMove);
             }
 
             //Pausa
@@ -173,6 +189,30 @@ public class MoveCharacter : MonoBehaviour {
             boxControl.depth = depth_;
             boxControl.isMined = false;
             Instantiate(newBox);
+        }
+    }
+
+    //Moving stop
+    void StopMoving(Move lastMove_)
+    {
+        moveTime -= Time.deltaTime;
+        if(moveTime <= 0)
+        {
+            switch (lastMove_)
+            {
+                case Move.Left:
+                    transform.position = new Vector3(xPos, yPos, 0);
+                    break;
+                case Move.Right:
+                    transform.position = new Vector3(xPos, yPos, 0);
+                    break;
+                case Move.Down:
+                    BoxMove(depth + 9);
+                    depth++;
+                    break;
+            }
+            moveTime = absoluteMoveTime;
+            moving = false;
         }
     }
 
