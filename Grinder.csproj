@@ -295,8 +295,8 @@
     <Compile Include="Assets\Scripts\MoveCharacter.cs" />
     <Compile Include="Assets\Scripts\MoveScrollbar.cs" />
     <Compile Include="Assets\Scripts\NewLoot.cs" />
-    <Compile Include="Assets\Scripts\Outdated\Box.cs" />
-    <Compile Include="Assets\Scripts\Outdated\MoveCharacter.cs" />
+    <Compile Include="Assets\Scripts\Outdated\Box_Outdated.cs" />
+    <Compile Include="Assets\Scripts\Outdated\MoveCharacter_Outdated.cs" />
     <Compile Include="Assets\Scripts\Tutorial.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

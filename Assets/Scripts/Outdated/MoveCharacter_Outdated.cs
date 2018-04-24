@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoveCharacter : MonoBehaviour {
+public class MoveCharacter_Outdated : MonoBehaviour {
     public enum Move { Down, Right, Left };
     public GameObject box;
     public Image scrollBar;
