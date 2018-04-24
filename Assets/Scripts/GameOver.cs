@@ -6,7 +6,6 @@ public class GameOver : MonoBehaviour {
 
     public void PlayGame()
     {
-
         Application.LoadLevel("Arcade");
     }
 

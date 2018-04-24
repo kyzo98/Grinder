@@ -36,11 +36,12 @@ public class MoveCharacter : MonoBehaviour {
     public bool pauseToggle;
 
 
-    Animator anim;
+    public Animator anim;
     public bool gameOver;
 
     // Use this for initialization
     void Start () {
+        Time.timeScale = 1;
         yPos = 5;
         lastMove = Move.Down;
         depth = 0;
@@ -59,6 +60,7 @@ public class MoveCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        anim.SetBool("Down", false);
         anim.SetBool("Lateral", false);
         gameOver = GameOver();
         if (!gameOver)
@@ -88,7 +90,6 @@ public class MoveCharacter : MonoBehaviour {
             if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
             {
                 orientation = false;
-                anim.SetBool("Lateral", true);
                 if (xPos != -4)
                 {
                     xPos -= 2;
@@ -99,7 +100,6 @@ public class MoveCharacter : MonoBehaviour {
             if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
             {
                 orientation = true;
-                anim.SetBool("Lateral", true);
                 if (xPos != 4)
                 {
                     xPos += 2;
@@ -110,6 +110,7 @@ public class MoveCharacter : MonoBehaviour {
             }
             if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
             {
+                anim.SetBool("Down", true);
                 BoxMove(depth + 9);
                 depth++;
                 lastMove = Move.Down;
@@ -120,19 +121,7 @@ public class MoveCharacter : MonoBehaviour {
             //Pausa
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (pauseToggle)
-                {
-                    PauseCanvas.SetActive(false);
-                    Time.timeScale = 1;
-                }
-
-                else
-                {
-                    Time.timeScale = 0;
-                    PauseCanvas.SetActive(true);
-                }   
-
-                pauseToggle = !pauseToggle;
+                PauseFunc();
             }
         }
         else
@@ -187,6 +176,22 @@ public class MoveCharacter : MonoBehaviour {
         }
     }
 
+    //Pause
+    public void PauseFunc()
+    {
+        if (pauseToggle)
+        {
+            PauseCanvas.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+        else
+        {
+            Time.timeScale = 0;
+            PauseCanvas.SetActive(true);
+        }
+        pauseToggle = !pauseToggle;
+    }
     //Si te quedas sin picadas pierdes
     bool GameOver()
     {

@@ -17,6 +17,8 @@ public class Box : MonoBehaviour
     public bool isMined;
     public int depth;
     public int value;
+    public int lootValue;
+    public int totalValue;
 
     public int xpos;
     public int ypos;
@@ -58,6 +60,7 @@ public class Box : MonoBehaviour
         LootRandomizer();
         GroundSprite(ground);
         ValueGenerator(ground, loot);
+        totalValue = value + lootValue;
     }
 
     // Update is called once per frame
@@ -76,17 +79,25 @@ public class Box : MonoBehaviour
             {
                 if (!isMined)
                 {
-                    characterControl.moves += value;
+                    if(Input.GetKeyDown("left") || Input.GetKeyDown("right"))
+                        characterControl.anim.SetBool("Lateral", true);
+
+                    characterControl.moves += totalValue;
                     characterControl.turnTime = characterControl.absoluteTurnTime;
                     isMined = true;
+
+                    GameObject newNewLoot = Instantiate(newLoot, new Vector3(0, 8, 0), Quaternion.identity) as GameObject;
+                    newNewLoot.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                    NewLoot newLootControl = newNewLoot.GetComponent<NewLoot>();
+                    newLootControl.value = value;
                     if (loot != Loot.Nothing)
                     {
-                        GameObject newNewLoot = Instantiate(newLoot, new Vector3(0, 8, 0), Quaternion.identity) as GameObject;
-                        newNewLoot.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-                        NewLoot newLootControl = newNewLoot.GetComponent<NewLoot>();
-                        newLootControl.value = value.ToString();
+                        GameObject newNewLoot2 = Instantiate(newLoot, new Vector3(0, 8, 0), Quaternion.identity) as GameObject;
+                        newNewLoot2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                        NewLoot newLootControl2 = newNewLoot2.GetComponent<NewLoot>();
+                        newLootControl2.value = lootValue;
+                        loot = Loot.Nothing;
                     }
-                    loot = Loot.Nothing; 
                 }
             }
             if (ypos > 10)
@@ -229,22 +240,22 @@ public class Box : MonoBehaviour
         switch (loot)
         {
             case Loot.Coal:
-                value += Random.Range(1, 3);
+                lootValue = 3;
                 break;
             case Loot.Quartz:
-                value += Random.Range(6, 8);
+                lootValue = 7;
                 break;
             case Loot.Diamond:
-                value += Random.Range(14, 16);
+                lootValue = 15;
                 break;
             case Loot.Silver:
-                value += Random.Range(3, 4);
+                lootValue = 4;
                 break;
             case Loot.Gold:
-                value += Random.Range(4, 6);
+                lootValue = 5;
                 break;
             case Loot.Ruby:
-                value += Random.Range(10, 12);
+                lootValue = 10;
                 break;
             default:
                 break;

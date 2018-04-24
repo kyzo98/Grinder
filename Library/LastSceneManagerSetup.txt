@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Arcade.unity
+- path: Assets/AkonaScene.unity
   isLoaded: 1
   isActive: 1
