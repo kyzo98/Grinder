@@ -50,7 +50,7 @@ public class NewLoot : MonoBehaviour {
         transform.position = Vector3.Lerp(startPosition, target, t);
         if (value < 0)
         {
-            prueba.color = new Color(1f, 0f, 0f, Mathf.SmoothStep(maximum, minimum, t));
+            prueba.color = new Color(0.803f, 0.254f, 0.215f, Mathf.SmoothStep(maximum, minimum, t));
             prueba.text = string.Concat(value.ToString());
         }
         else if (value == 0)
@@ -60,7 +60,7 @@ public class NewLoot : MonoBehaviour {
         }
         else
         {
-            prueba.color = new Color(0f, 1f, 0f, Mathf.SmoothStep(maximum, minimum, t));
+            prueba.color = new Color(0.458f, 0.713f, 0.29f, Mathf.SmoothStep(maximum, minimum, t));
             prueba.text = string.Concat("+", value.ToString());
         }
         DestroyGameObject();

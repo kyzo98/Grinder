@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class MoveCharacter : MonoBehaviour {
-    public enum Move { Down, Right, Left, None };
+    public enum Move { Down, Right, Left };
     public GameObject box;
     public Image scrollBar;
     public GameObject GameOverCanvas; 
     public GameObject PauseCanvas; 
+    public GameObject Tutorial; 
 
     public float fadeTime = 1.0f;
 
@@ -39,13 +40,8 @@ public class MoveCharacter : MonoBehaviour {
     public Animator anim;
     public bool gameOver;
 
-    public bool moving;
-    float absoluteMoveTime;
-    float moveTime;
-
     // Use this for initialization
     void Start () {
-        moving = false;
         Time.timeScale = 1;
         yPos = 5;
         lastMove = Move.Down;
@@ -61,8 +57,6 @@ public class MoveCharacter : MonoBehaviour {
         temporizador = false;
         pauseToggle = false;
         anim = gameObject.GetComponent<Animator>();
-        absoluteMoveTime = 0.2f;
-        moveTime = absoluteMoveTime;
     }
 	
 	// Update is called once per frame
@@ -94,44 +88,39 @@ public class MoveCharacter : MonoBehaviour {
                 scrollBar.fillAmount = turnTime / absoluteTurnTime;
             }
             //Movimiento
-            if (!moving)
+            if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
             {
-                if (Input.GetKeyDown("left") && !Input.GetKeyDown("down") && !pauseToggle)
+                orientation = false;
+                if (xPos != -4)
                 {
-                    orientation = false;
-                    lastMove = Move.Left;
-                    if (xPos != -4)
-                    {
-                        xPos -= 2;
-                        moving = true;
-                    }
-                    //transform.position = new Vector3(xPos, yPos, 0);
-                    
+                    xPos -= 2;
                 }
-                if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
-                {
-                    orientation = true;
-                    lastMove = Move.Right;
-                    if (xPos != 4)
-                    {
-                        xPos += 2;
-                        moving = true;
-                    }
-                    //transform.position = new Vector3(xPos, yPos, 0);
-                    
-                }
-                if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
-                {
-                    anim.SetBool("Down", true);
-                    moving = true;
-                    lastMove = Move.Down;
-                    if (!temporizador)
-                        temporizador = true;
-                }
+                transform.position = new Vector3(xPos, yPos, 0);
+                lastMove = Move.Left;
             }
-            else
+            if (Input.GetKeyDown("right") && !Input.GetKeyDown("down") && !pauseToggle)
             {
-                StopMoving(lastMove);
+                orientation = true;
+                if (xPos != 4)
+                {
+                    xPos += 2;
+                } 
+                transform.position = new Vector3(xPos, yPos, 0);
+                lastMove = Move.Right;
+            }
+            if (Input.GetKeyDown("down") && (!Input.GetKeyDown("left") || Input.GetKeyDown("right")) && !pauseToggle)
+            {
+                anim.SetBool("Down", true);
+                BoxMove(depth + 9);
+                depth++;
+                lastMove = Move.Down;
+
+                //Activa temporizador
+                if (!temporizador)
+                    temporizador = true;
+
+                //Desactiva tutorial
+                DestroyGameObject(Tutorial);
             }
 
             //Pausa
@@ -192,30 +181,6 @@ public class MoveCharacter : MonoBehaviour {
         }
     }
 
-    //Moving stop
-    void StopMoving(Move lastMove_)
-    {
-        moveTime -= Time.deltaTime;
-        if(moveTime <= 0)
-        {
-            switch (lastMove_)
-            {
-                case Move.Left:
-                    transform.position = new Vector3(xPos, yPos, 0);
-                    break;
-                case Move.Right:
-                    transform.position = new Vector3(xPos, yPos, 0);
-                    break;
-                case Move.Down:
-                    BoxMove(depth + 9);
-                    depth++;
-                    break;
-            }
-            moveTime = absoluteMoveTime;
-            moving = false;
-        }
-    }
-
     //Pause
     public void PauseFunc()
     {
@@ -236,5 +201,11 @@ public class MoveCharacter : MonoBehaviour {
     bool GameOver()
     {
         return moves <= 0;
+    }
+
+    //Destruye sobras
+    void DestroyGameObject(GameObject go1)
+    {
+        Destroy(go1);
     }
 }
