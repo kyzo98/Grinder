@@ -573,6 +573,86 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1584880748}
   m_Script: {fileID: 11500000, guid: 2cce25f7bdb4ca74fa0c247f9a64ae59, type: 3}
+--- !u!82 &337631314
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 337631312}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &337631316
 Animator:
   serializedVersion: 3
@@ -2529,6 +2609,16 @@ Prefab:
       propertyPath: Tutorial
       value: 
       objectReference: {fileID: 1678631661}
+    - target: {fileID: 114568427429338168, guid: 139f9cf6badf7ab4aae3f137c452abd0,
+        type: 2}
+      propertyPath: game_over_source
+      value: 
+      objectReference: {fileID: 337631314}
+    - target: {fileID: 114568427429338168, guid: 139f9cf6badf7ab4aae3f137c452abd0,
+        type: 2}
+      propertyPath: game_over
+      value: 
+      objectReference: {fileID: 8300000, guid: 453a23c403c9df44a922ab3ebba06e30, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 139f9cf6badf7ab4aae3f137c452abd0, type: 2}
   m_IsPrefabParent: 0

@@ -43,11 +43,40 @@ public class Box : MonoBehaviour
     public Sprite iceSprite;
     public Sprite ice_rockSprite;
 
+
     //Infernal
     public Sprite soul_sandSprite;
     public Sprite lavaSprite;
     public Sprite bone_tombSprite;
     public Sprite infernal_rockSprite;
+
+    //Sounds
+    public AudioSource Source;
+    public AudioSource lootSource;
+    public AudioClip lootSound; 
+    public AudioClip soil;
+    public AudioClip sand;
+    public AudioClip rock;
+    public AudioClip stone;
+
+    public AudioClip vegetal_sediment;
+    public AudioClip petroleum;
+    public AudioClip organic_strata;
+    public AudioClip coal_rock;
+
+    public AudioClip frost;
+    public AudioClip snow;
+    public AudioClip ice;
+    public AudioClip ice_rock;
+
+    public AudioClip lava;
+    public AudioClip soul_sand;
+    public AudioClip bone_tomb;
+    public AudioClip infernal_rock;
+
+
+
+
 
     private SpriteRenderer spriteR;
 
@@ -92,12 +121,16 @@ public class Box : MonoBehaviour
                     newLootControl.value = value;
                     if (loot != Loot.Nothing)
                     {
+                       
                         GameObject newNewLoot2 = Instantiate(newLoot, new Vector3(0, 8, 0), Quaternion.identity) as GameObject;
                         newNewLoot2.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
                         NewLoot newLootControl2 = newNewLoot2.GetComponent<NewLoot>();
                         newLootControl2.value = lootValue;
                         loot = Loot.Nothing;
+                        lootSource.clip = lootSound;
+                        lootSource.Play();
                     }
+                    GroundSound(ground);
                 }
             }
             if (ypos > 10)
@@ -172,6 +205,82 @@ public class Box : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+    void GroundSound(Ground ground)
+    {
+        switch (ground)
+        {
+            case Ground.Grass:
+                 Source.clip = soil;
+                 Source.Play();
+                 break;
+            case Ground.Soil:
+                 Source.clip = soil;
+                 Source.Play(); 
+                 break;
+            case Ground.Sand:
+                 Source.clip = sand;
+                 Source.Play();
+                 break;
+            case Ground.Rock:
+                 Source.clip = rock;
+                 Source.Play();
+                 break;  
+            case Ground.Stone:
+                 Source.clip = stone;
+                 Source.Play();
+                 break;
+            case Ground.Coal_Rock:
+                 Source.clip = coal_rock;
+                 Source.Play();
+                 break;
+            case Ground.Vegetal_Sediment:
+                 Source.clip = vegetal_sediment;
+                 Source.Play();
+                 break;
+            case Ground.Petroleum:
+                 Source.clip = vegetal_sediment;
+                 Source.Play();
+                 break;
+            case Ground.Organic_Strata:
+                 Source.clip = organic_strata;
+                 Source.Play();
+                 break;
+            case Ground.Frost:
+                 Source.clip = frost;
+                 Source.Play();
+                 break;
+            case Ground.Snow:
+                 Source.clip = snow;
+                 Source.Play();
+                 break;
+            case Ground.Ice:
+                 Source.clip = ice;
+                 Source.Play();
+                 break;
+            case Ground.Ice_Rock:
+                 Source.clip = ice_rock;
+                 Source.Play();
+                 break;
+            case Ground.Soul_Sand:
+                 Source.clip = soul_sand;
+                 Source.Play();
+                 break;
+            case Ground.Lava:
+                 Source.clip = lava;
+                 Source.Play();
+                 break;
+           case  Ground.Bone_Tomb:
+                 Source.clip = bone_tomb;
+                 Source.Play();
+                 break;
+           case  Ground.Infernal_Rock:
+                 Source.clip = infernal_rock;
+                 Source.Play();
+                 break;
+                 default:
+                 break;
         }
     }
 
@@ -282,7 +391,7 @@ public class Box : MonoBehaviour
             }
             else if(randomizer % 10 == 0)
             {
-                ground = Ground.Soil;
+                ground = Ground.Soil;   
             }
             else if(randomizer + depth > 110)
             {

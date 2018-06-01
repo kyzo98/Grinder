@@ -20,6 +20,10 @@ public class MoveCharacter : MonoBehaviour {
     public Text newLootText;
     public Text renderCanvas;
 
+    
+    public AudioSource game_over_source;
+    public AudioClip game_over;
+
     public Move lastMove;
 
     public int xPos;
@@ -135,7 +139,10 @@ public class MoveCharacter : MonoBehaviour {
             //Cambiar a la escena gameover
             gameOverDepthText.text = depth.ToString();
             gameOverLootText.text = loot.ToString();
+            //game_over_source.clip = game_over;
+            //game_over_source.Play();
             GameOverCanvas.SetActive(true);
+           
         }
         RefreshValues();
     }
@@ -200,6 +207,7 @@ public class MoveCharacter : MonoBehaviour {
     //Si te quedas sin picadas pierdes
     bool GameOver()
     {
+       
         return moves <= 0;
     }
 

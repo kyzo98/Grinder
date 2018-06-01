@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Button_Scripts : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource source;
+    public AudioClip hover;
+    public AudioClip click;
+
+    // Use this for initialization
+    void Start () {
         
     }
 	
@@ -23,4 +27,11 @@ public class Button_Scripts : MonoBehaviour {
     {
         Application.OpenURL("https://goo.gl/forms/RyOX1cJq6bgdiajF2");
     }
+
+
+    
+
+
 }
+
+

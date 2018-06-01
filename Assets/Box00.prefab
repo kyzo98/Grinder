@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4966552090829890}
   - component: {fileID: 212975402945075666}
   - component: {fileID: 114924107466350304}
+  - component: {fileID: 82557504865056980}
+  - component: {fileID: 82791596602113612}
   m_Layer: 0
   m_Name: Box00
   m_TagString: Box
@@ -103,6 +105,166 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82557504865056980
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245949850823912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &82791596602113612
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1245949850823912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114555386498356356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -151,7 +313,7 @@ MonoBehaviour:
   ground: 0
   loot: 0
   isMined: 0
-  depth: 153
+  depth: 7
   value: 0
   lootValue: 0
   totalValue: 0
@@ -178,7 +340,25 @@ MonoBehaviour:
   bone_tombSprite: {fileID: 21300000, guid: f7422935b77101c4c9e57906d561821a, type: 3}
   infernal_rockSprite: {fileID: 21300000, guid: 2a97b6bbf7963094aa691002a8feae67,
     type: 3}
-  moving: 0
+  Source: {fileID: 82557504865056980}
+  lootSource: {fileID: 82791596602113612}
+  lootSound: {fileID: 8300000, guid: 4e0d50136328e7241b6e681159e92a28, type: 3}
+  soil: {fileID: 8300000, guid: 62e6cd2e963fb3f4d88a3ca82617a5ab, type: 3}
+  sand: {fileID: 8300000, guid: 66fe1996db142ce40ac87ee5eee8545e, type: 3}
+  rock: {fileID: 8300000, guid: fb1be39382219dd46973c511dbeb4095, type: 3}
+  stone: {fileID: 8300000, guid: 26163f1d1ba788f4599ff04ae08c0689, type: 3}
+  vegetal_sediment: {fileID: 8300000, guid: b450f5b1b07ec354c9148b00420347d2, type: 3}
+  petroleum: {fileID: 8300000, guid: 35df3e68df732354a9cda67dd0f96062, type: 3}
+  organic_strata: {fileID: 8300000, guid: 43d13b7a8f1bd2548aa82a77f23263de, type: 3}
+  coal_rock: {fileID: 8300000, guid: f723a82934e18b84eac1a92ac0ccc0a7, type: 3}
+  frost: {fileID: 8300000, guid: ebf2302d5a060524a8c923cc504899e4, type: 3}
+  snow: {fileID: 8300000, guid: 5663670f3d59107429336638781641db, type: 3}
+  ice: {fileID: 8300000, guid: 93fb0b28ab3ac204b900d9de99ed33ba, type: 3}
+  ice_rock: {fileID: 8300000, guid: bbabc3670051c514d95e742588731f71, type: 3}
+  lava: {fileID: 8300000, guid: 35df3e68df732354a9cda67dd0f96062, type: 3}
+  soul_sand: {fileID: 8300000, guid: 4c68c507807514646a83cadcc85643f8, type: 3}
+  bone_tomb: {fileID: 8300000, guid: 80b9a4ecccca5d14fa52d25bcc826262, type: 3}
+  infernal_rock: {fileID: 8300000, guid: e32f849f727b14e4fa20e124dfa22ff3, type: 3}
 --- !u!212 &212507987021316690
 SpriteRenderer:
   m_ObjectHideFlags: 1
