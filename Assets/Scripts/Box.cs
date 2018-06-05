@@ -489,7 +489,7 @@ public class Box : MonoBehaviour
     void LootRandomizer()
     {
         int randomizer2 = Random.Range(0, 9999);
-        if (randomizer2 % 5 == 0)   //1(porque solo hay un valor 0) de cada 6 bloques
+        if (randomizer2 % 7 == 0)   //1(porque solo hay un valor 0) de cada 6 bloques
         {
             randomizer2 /= 10;
             if (ground == Ground.Soil)
@@ -611,7 +611,7 @@ public class Box : MonoBehaviour
                 {
                     loot = Loot.Silver;
                 }
-                else if (randomizer2 <= 700)
+                else if (randomizer2 <= 800)
                 {
                     loot = Loot.Gold;
                 }
@@ -626,11 +626,7 @@ public class Box : MonoBehaviour
                 {
                     loot = Loot.Gold;
                 }
-                else if (randomizer2 <= 700)
-                {
-                    loot = Loot.Quartz;
-                }
-                else
+                else if (randomizer2 <= 900)
                 {
                     loot = Loot.Coltan;
                 }
@@ -641,7 +637,7 @@ public class Box : MonoBehaviour
                 {
                     loot = Loot.Gold;
                 }
-                else if (randomizer2 <= 700)
+                else if (randomizer2 <= 850)
                 {
                     loot = Loot.Quartz;
                 }
@@ -656,11 +652,11 @@ public class Box : MonoBehaviour
                 {
                     loot = Loot.Quartz;
                 }
-                else if (randomizer2 <= 700)
+                else if (randomizer2 <= 800)
                 {
                     loot = Loot.Coltan;
                 }
-                else if (randomizer2 <= 800)
+                else if (randomizer2 <= 900)
                 {
                     loot = Loot.Ruby;
                 }
