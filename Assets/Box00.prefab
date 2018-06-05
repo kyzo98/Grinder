@@ -116,7 +116,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.653
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -196,7 +196,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.178
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -297,6 +297,9 @@ MonoBehaviour:
   spriteSilver: {fileID: 21300000, guid: ba328ffb5e0fc14459c14d45453c4100, type: 3}
   spriteGold: {fileID: 21300000, guid: 614f7cd7c258bce4c94d7f55388dfabd, type: 3}
   spriteRuby: {fileID: 21300000, guid: f38859a0e4f0c02489f9a3f6b10dbca0, type: 3}
+  spriteEmerald: {fileID: 21300000, guid: 68defeaa5b468004eb7710ecb9b55ba2, type: 3}
+  spriteColtan: {fileID: 21300000, guid: a32670fcbaf92fd43bd7aed11b2bbf47, type: 3}
+  spriteObsidian: {fileID: 21300000, guid: 11998e3619f897141b44a2e23312056d, type: 3}
 --- !u!114 &114924107466350304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,7 +316,7 @@ MonoBehaviour:
   ground: 0
   loot: 0
   isMined: 0
-  depth: 7
+  depth: 23
   value: 0
   lootValue: 0
   totalValue: 0

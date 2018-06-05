@@ -8,8 +8,8 @@ public class Box : MonoBehaviour
     public GameObject character;
     public GameObject newLoot;
 
-    public enum Ground { Sky, Grass, Soil, Rock, Sand, Stone, Coal_Rock, Organic_Strata, Petroleum, Vegetal_Sediment, Frost, Snow, Ice, Ice_Rock, Soul_Sand, Lava, Bone_Tomb, Infernal_Rock };
-    public enum Loot { Nothing, Coal, Quartz, Diamond, Silver, Gold, Ruby };
+    public enum Ground { Sky, Grass, Soil, Rock, Sand, Stone, Coal_Rock, Organic_Strata, Petroleum, Vegetal_Sediment, Frost, Soul_Sand, Ice, Ice_Rock, Snow, Lava, Bone_Tomb, Infernal_Rock };
+    public enum Loot { Nothing, Coal, Quartz, Diamond, Silver, Gold, Ruby, Emerald, Coltan, Obsidian };
 
     public Ground ground;
     public Loot loot;
@@ -366,6 +366,15 @@ public class Box : MonoBehaviour
             case Loot.Ruby:
                 lootValue = 10;
                 break;
+            case Loot.Emerald:
+                lootValue = 10;
+                break;
+            case Loot.Coltan:
+                lootValue = 12;
+                break;
+            case Loot.Obsidian:
+                lootValue = 14;
+                break;
             default:
                 break;
         }
@@ -439,13 +448,17 @@ public class Box : MonoBehaviour
             {
                 ground = Ground.Snow;
             }
-            else if (randomizer + depth > 310)
+            else if (randomizer + depth > 360)
             {
                 ground = Ground.Ice;
             }
-            else if (randomizer + depth > 270)
+            else if (randomizer + depth > 320)
             {
                 ground = Ground.Ice_Rock;
+            }
+            else
+            {
+                ground = Ground.Snow;
             }
         }
         else
@@ -458,13 +471,17 @@ public class Box : MonoBehaviour
             {
                 ground = Ground.Soul_Sand;
             }
-            else if (randomizer + depth > 410)
+            else if (randomizer + depth > 610)
             {
                 ground = Ground.Bone_Tomb;
             }
-            else if (randomizer + depth > 370)
+            else if (randomizer + depth > 570)
             {
                 ground = Ground.Infernal_Rock;
+            }
+            else
+            {
+                ground = Ground.Soul_Sand;
             }
         }
     }
@@ -472,7 +489,7 @@ public class Box : MonoBehaviour
     void LootRandomizer()
     {
         int randomizer2 = Random.Range(0, 9999);
-        if (randomizer2 % 10 <= 1)
+        if (randomizer2 % 8 == 0)   //1(porque solo hay un valor 0) de cada 8 bloques
         {
             randomizer2 /= 10;
             if (ground == Ground.Soil)
@@ -528,56 +545,56 @@ public class Box : MonoBehaviour
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Coal;
+                    loot = Loot.Silver;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Emerald;
                 }
             }
             else if (ground == Ground.Petroleum)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Emerald;
                 }
             }
             else if (ground == Ground.Organic_Strata)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Emerald;
                 }
             }
             else if (ground == Ground.Coal_Rock)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Emerald;
                 }
                 else if (randomizer2 <= 900)
                 {
@@ -592,56 +609,56 @@ public class Box : MonoBehaviour
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Coal;
+                    loot = Loot.Silver;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Coltan;
                 }
             }
             else if (ground == Ground.Snow)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Coal;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Quartz;
                 }
                 else
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Coltan;
                 }
             }
             else if (ground == Ground.Ice)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Coltan;
                 }
             }
             else if (ground == Ground.Ice_Rock)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Coltan;
                 }
                 else if (randomizer2 <= 900)
                 {
@@ -660,41 +677,41 @@ public class Box : MonoBehaviour
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Coltan;
                 }
             }
             else if (ground == Ground.Bone_Tomb)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Silver;
+                    loot = Loot.Gold;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Coltan;
                 }
                 else
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Obsidian;
                 }
             }
             else if (ground == Ground.Infernal_Rock)
             {
                 if (randomizer2 <= 500)
                 {
-                    loot = Loot.Gold;
+                    loot = Loot.Quartz;
                 }
                 else if (randomizer2 <= 800)
                 {
-                    loot = Loot.Quartz;
+                    loot = Loot.Coltan;
                 }
                 else if (randomizer2 <= 900)
                 {

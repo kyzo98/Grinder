@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LootRender : MonoBehaviour {
-    enum Loot { Nothing, Coal, Quartz, Diamond, Silver, Gold, Ruby };
+    enum Loot { Nothing, Coal, Quartz, Diamond, Silver, Gold, Ruby, Emerald, Coltan, Obsidian };
 
     public Sprite spriteNothing;
     public Sprite spriteCoal;
@@ -12,6 +12,9 @@ public class LootRender : MonoBehaviour {
     public Sprite spriteSilver;
     public Sprite spriteGold;
     public Sprite spriteRuby;
+    public Sprite spriteEmerald;
+    public Sprite spriteColtan;
+    public Sprite spriteObsidian;
 
 
     private SpriteRenderer spriteR;
@@ -40,6 +43,15 @@ public class LootRender : MonoBehaviour {
                 break;
             case Box.Loot.Ruby:
                 spriteR.sprite = spriteRuby;
+                break;
+            case Box.Loot.Emerald:
+                spriteR.sprite = spriteEmerald;
+                break;
+            case Box.Loot.Coltan:
+                spriteR.sprite = spriteColtan;
+                break;
+            case Box.Loot.Obsidian:
+                spriteR.sprite = spriteObsidian;
                 break;
             default:
                 break;
