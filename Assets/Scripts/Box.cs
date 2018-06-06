@@ -489,7 +489,7 @@ public class Box : MonoBehaviour
     void LootRandomizer()
     {
         int randomizer2 = Random.Range(0, 9999);
-        if (randomizer2 % 7 == 0)   //1(porque solo hay un valor 0) de cada 6 bloques
+        if (randomizer2 % 20 <= 2)   //1(porque solo hay un valor 0) de cada 6 bloques
         {
             randomizer2 /= 10;
             if (ground == Ground.Soil)

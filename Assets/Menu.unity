@@ -2044,8 +2044,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This build is a demo version of the game. The game could change in future
-    versions. It does not represent the final quality of the product.
+  m_Text: 'This build is the final version of the game. Anyway the game could change
+    in future versions. '
 --- !u!222 &1750025021
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2119,7 +2119,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: DEMO VERSION 0.1
+  m_Text: VERSION 1.0
 --- !u!222 &1791681949
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2162,7 +2162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -320}
+  m_AnchoredPosition: {x: 0, y: -170}
   m_SizeDelta: {x: 350, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824264475
@@ -2535,7 +2535,7 @@ Prefab:
     - target: {fileID: 224191865482598254, guid: 11cbfb909d6b1d24a9231219af7b9bff,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 106
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 224851370525801382, guid: 11cbfb909d6b1d24a9231219af7b9bff,
         type: 2}
@@ -2555,6 +2555,22 @@ Prefab:
     - target: {fileID: 224851370525801382, guid: 11cbfb909d6b1d24a9231219af7b9bff,
         type: 2}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005219182986268, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100400087314860, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172470358051356, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1211304792114376, guid: 11cbfb909d6b1d24a9231219af7b9bff, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
